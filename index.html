@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>워터웨이브 모바일 시세표</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; background: #f8f9fa; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }
+        .container { width: 100%; max-width: 650px; background: #fff; border: 2px solid #222; padding: 15px; box-sizing: border-box; }
+        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; border: 2px solid #000; }
+        .policy-table td { border: 1px solid #000; padding: 10px; text-align: center; line-height: 1.5; }
+        .notice-text { color: #d9534f; font-weight: bold; font-size: 15px; background: #fff5f5; }
+        .date-text { font-size: 22px; font-weight: bold; color: #2c7a7b; background: #f0fff4; }
+        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; overflow: hidden; }
+        .device-info { width: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
+        .device-info img { width: 120px; height: auto; margin-bottom: 10px; }
+        .model-name { font-size: 30px; color: #e53e3e; font-weight: bold; }
+        .model-price { font-size: 14px; font-weight: bold; color: #333; margin-top: 5px; }
+        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
+        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 48px; font-size: 14px; }
+        .th-orange { background: #fffaf0; color: #dd6b20; font-weight: bold; }
+        .th-purple { background: #faf5ff; color: #805ad5; font-weight: bold; }
+        .th-black { background: #1a202c; color: #fff; font-weight: bold; }
+        .carrier-name { font-weight: bold; background: #edf2f7; width: 60px; }
+        .price-num { font-size: 24px; font-weight: bold; color: #1a202c; }
+        .kakao-btn { display: flex; align-items: center; justify-content: center; width: 100%; background-color: #FEE500; color: #3C1E1E; text-decoration: none; padding: 18px 0; margin-top: 10px; font-size: 19px; font-weight: bold; border-radius: 8px; border: 1px solid #e2cc00; }
+        .kakao-logo { width: 26px; margin-right: 12px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="policy-table">
+        <tr><td colspan="4" class="notice-text">요금제/부가서비스 선택사항입니다. 상담 시 꼭 말씀해 주세요!</td></tr>
+        <tr class="date-text"><td colspan="2">오늘의 정책일</td><td colspan="2">2026-04-01</td></tr>
+        <tr><td style="font-weight:bold; background:#fffaf0">요금제 유지</td><td colspan="3">M+185일 유지 (이후 자유 변경 가능)</td></tr>
+        <tr><td style="font-weight:bold; background:#fff5f5">SK 부가</td><td colspan="3">우주패스(0원), 마이스마트콜, 보험 (D+62일 유지)</td></tr>
+        <tr><td style="font-weight:bold; background:#fffaf0">KT 부가</td><td colspan="3">필수팩(9,900원), 파손보험 (M+4개월 유지)</td></tr>
+        <tr><td style="font-weight:bold; background:#f0fff4">LG 부가</td><td colspan="3">교보문고, V컬러링, 파손보험 (95일 유지)</td></tr>
+    </table>
+
+    <div class="price-wrapper">
+        <div class="device-info">
+            <img src="https://via.placeholder.com/120x150?text=S26" alt="S26">
+            <div class="model-name">S26</div>
+            <div class="model-price">출고가 1,254,000</div>
+            <div class="model-capa">256GB</div>
+        </div>
+        <table class="price-table">
+            <thead>
+                <tr><th rowspan="2" class="carrier-name">구분</th><th colspan="2" class="th-orange">공시지원금</th><th colspan="2" class="th-purple">선택약정</th><th rowspan="2" class="th-black">요금제</th></tr>
+                <tr style="font-size:11px;"><th class="th-orange">번이</th><th class="th-orange">기변</th><th class="th-purple">번이</th><th class="th-purple">기변</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="carrier-name">SK</td><td class="price-num">62</td><td class="price-num">72</td><td class="price-num">79</td><td class="price-num">87</td><td style="font-size:12px;">프리미엄</td></tr>
+                <tr><td class="carrier-name">KT</td><td class="price-num">31</td><td class="price-num">30</td><td class="price-num">79</td><td class="price-num">78</td><td style="font-size:12px;">초이스</td></tr>
+                <tr><td class="carrier-name">LG</td><td class="price-num">12</td><td class="price-num">9</td><td class="price-num">62</td><td class="price-num">59</td><td style="font-size:12px;">슈퍼</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-logo">
+        실시간 카톡 상담 및 예약하기
+    </a>
+</div>
+</body>
+</html>
