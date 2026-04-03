@@ -1,999 +1,112 @@
-  </a><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>휴대폰 시세표</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>워터웨이브 실시간 시세표</title>
     <style>
-        /* 기본 설정 */
-        body { font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; padding: 20px; margin: 0; }
-        .container { width: 650px; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-
-        /* 상단 정책 테이블 */
-        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; border: 2px solid #000; }
-        .policy-table td { border: 1px solid #000; padding: 8px; text-align: center; }
-        .title-red { color: red; font-weight: bold; font-size: 16px; }
-        .date-row { font-size: 20px; font-weight: bold; color: #2e7d32; background: #f9f9f9; }
-
-        /* 모델별 시세표 박스 */
-        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; }
-        .device-info { width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
-        .device-info img { width: 130px; margin-bottom: 10px; }
-        .model-title { font-size: 32px; color: #d9534f; font-weight: bold; margin-bottom: 5px; }
-        .spec-text { font-size: 14px; font-weight: bold; color: #333; }
-
-        /* 가격 테이블 */
-        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
-        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 45px; font-size: 14px; }
-        .head-orange { background: #ffccbc; font-weight: bold; }
-        .head-purple { background: #d1c4e9; font-weight: bold; }
-        .head-black { background: #000; color: #fff; font-weight: bold; }
-        .carrier-name { font-weight: bold; background: #f5f5f5; width: 70px; }
-        .price-num { font-size: 22px; font-weight: bold; color: #000; }
-        .plan-info { font-size: 12px; color: #444; line-height: 1.2; }
-
-        /* 카톡 배너 */
-        .kakao-banner {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; background-color: #FEE500; color: #3C1E1E;
-            text-decoration: none; padding: 15px 0; margin-top: 10px;
-            font-size: 18px; font-weight: bold; border-radius: 5px; border: 1px solid #ebcf00;
-        }
-        .kakao-icon { width: 24px; margin-right: 10px; }
-    </style>
-</head>
-<body>
-<a href="https://gi.esmplus.com/awaterwave/ALGO/algoofm1.png">
-<img src='https://gi.esmplus.com/awaterwave/ALGO/algoofm1.png' height="1000" width="900" /></a><p>
-&nbsp;</p>
-&nbsp;<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9" style="height: 33px">LG 부가</td>
-			<td colspan="3" style="height: 33px">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="2.png" alt="S26"> <div class="model-title">S26</div>
-            <div class="spec-text">출고가 1,254,000</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange" style="width: 113px">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td>
-					<td class="auto-style3" style="width: 113px">5</td>
-					<td class="auto-style3">18</td><td class="auto-style3">85</td>
-					<td class="auto-style3">99</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td>
-					<td class="auto-style2" style="width: 113px">7</td>
-					<td class="auto-style2">2</td><td class="auto-style4">88</td>
-					<td class="auto-style4">88</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="auto-style8">LGU+</td>
-					<td class="auto-style1" style="width: 113px">0</td>
-					<td class="auto-style1">2</td><td class="auto-style5">59</td>
-					<td class="auto-style5">64</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
-</div>
-<title>휴대폰 시세표</title>
-    <style>
-        /* 기본 설정 */
-        body { font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; padding: 20px; margin: 0; }
-        .container { width: 650px; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-
-        /* 상단 정책 테이블 */
-        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; border: 2px solid #000; }
-        .policy-table td { border: 1px solid #000; padding: 8px; text-align: center; }
-        .title-red { color: red; font-weight: bold; font-size: 16px; }
-        .date-row { font-size: 20px; font-weight: bold; color: #2e7d32; background: #f9f9f9; }
-
-        /* 모델별 시세표 박스 */
-        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; }
-        .device-info { width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
-        .device-info img { width: 130px; margin-bottom: 10px; }
-        .model-title { font-size: 32px; color: #d9534f; font-weight: bold; margin-bottom: 5px; }
-        .spec-text { font-size: 14px; font-weight: bold; color: #333; }
-
-        /* 가격 테이블 */
-        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
-        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 45px; font-size: 14px; }
-        .head-orange { background: #ffccbc; font-weight: bold; }
-        .head-purple { background: #d1c4e9; font-weight: bold; }
-        .head-black { background: #000; color: #fff; font-weight: bold; }
-        .carrier-name { font-weight: bold; background: #f5f5f5; width: 70px; }
-        .price-num { font-size: 22px; font-weight: bold; color: #000; }
-        .plan-info { font-size: 12px; color: #444; line-height: 1.2; }
-
-        /* 카톡 배너 */
-        .kakao-banner {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; background-color: #FEE500; color: #3C1E1E;
-            text-decoration: none; padding: 15px 0; margin-top: 10px;
-            font-size: 18px; font-weight: bold; border-radius: 5px; border: 1px solid #ebcf00;
-        }
-        .kakao-icon { width: 24px; margin-right: 10px; }
+        :root { --sk: #E50647; --kt: #0619E5; --lg: #CB0BFF; }
+        body { font-family: 'Malgun Gothic', sans-serif; background: #f4f4f4; margin: 0; padding: 10px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; border: 2px solid #000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header-img { width: 100%; display: block; border-bottom: 2px solid #000; }
+        .notice-area { padding: 15px; background: #fff; }
+        .alert-dash { border: 2px dashed #ff3b30; padding: 15px; color: #c40000; font-weight: bold; font-size: 15px; margin-bottom: 15px; line-height: 1.6; text-align:center; }
+        #today-date { font-size: 20px; text-decoration: underline; }
+        
+        .price-table { width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed; border-top: 2px solid #000; }
+        .price-table th { background: #333; color: #fff; padding: 12px 2px; font-size: 12px; border: 1px solid #444; }
+        .price-table td { border: 1px solid #000; padding: 14px 2px; font-size: 17px; font-weight: bold; }
+        .model-name { background: #f9f9f9; text-align: left; padding-left: 10px !important; font-size: 13px; color: #000; }
+        
+        .sk-val { color: var(--sk); }
+        .kt-val { color: var(--kt); }
+        .lg-val { color: var(--lg); }
+        
+        .loading { text-align: center; padding: 50px; font-weight: bold; color: #666; font-size: 18px; }
+        .kakao-btn { display: block; background: #FEE500; color: #3C1E1E; text-align: center; padding: 20px; font-weight: bold; text-decoration: none; font-size: 20px; margin: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        .footer-info { padding: 15px; font-size: 13px; background: #f9f9f9; color: #555; line-height: 1.6; border-top: 1px solid #000; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9">LG 부가</td><td colspan="3">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
+    <img src="https://gi.esmplus.com/awaterwave/ALGO/algoofm1.png" class="header-img">
+    
+    <div class="notice-area">
+        <div class="alert-dash">
+            ★ <span id="today-date"></span> 실시간 시세표 ★<br>
+            <span style="font-size:13px; color:#555;">(인터넷 동시가입 제휴카드X / 중고반납X / 정찰제)</span><br>
+            매장에서 가격 언급 시 즉시 상담 종료됩니다.
+        </div>
+    </div>
+
+    <div id="loading" class="loading">최신 시세를 불러오는 중...</div>
+    
+    <table class="price-table" id="price-content" style="display:none;">
+        <thead>
+            <tr>
+                <th style="width:30%">모델명</th>
+                <th style="background:#ffeded; color:#d32f2f;">SK번이</th><th style="background:#ffeded; color:#d32f2f;">SK기변</th>
+                <th style="background:#eef2ff; color:#1565c0;">KT번이</th><th style="background:#eef2ff; color:#1565c0;">KT기변</th>
+                <th style="background:#fdf4ff; color:#8e24aa;">LG번이</th><th style="background:#fdf4ff; color:#8e24aa;">LG기변</th>
+            </tr>
+        </thead>
+        <tbody id="data-list"></tbody>
     </table>
 
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="5.png" alt="S26"> <div class="model-title">S26+</div>
-            <div class="spec-text">출고가 1,452,000</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">25</td><td class="price-num">
-					38</td><td class="price-num">88</td><td class="price-num">87</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">28</td><td class="price-num">
-					22</td><td class="price-num">86</td><td class="price-num">86</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="auto-style7">20</td>
-					<td class="auto-style7">
-					21</td><td class="price-num">80</td><td class="price-num">83</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
+    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-btn">💬 카톡 상담 및 예약하기</a>
+    
+    <div class="footer-info">
+        <b>[워터웨이브=알고모바일 안내]</b><br>
+        동작 보라매 / 인천 부평 / 안산 초지 / 시흥 정왕 / 신도림 / 온라인<br>
+        ※ 신분증 지참 필수 및 본인 방문 필수입니다.<br>
+        ※ 모든 시세는 실시간 구글 시트 데이터와 연동됩니다.
     </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
 </div>
 
-<title>휴대폰 시세표</title>
-    <style>
-        /* 기본 설정 */
-        body { font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; padding: 20px; margin: 0; }
-        .container { width: 650px; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+<script>
+    // 1. 오늘 날짜 자동 표시 스크립트
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    document.getElementById('today-date').innerText = `${year}-${month}-${day}`;
 
-        /* 상단 정책 테이블 */
-        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; border: 2px solid #000; }
-        .policy-table td { border: 1px solid #000; padding: 8px; text-align: center; }
-        .title-red { color: red; font-weight: bold; font-size: 16px; }
-        .date-row { font-size: 20px; font-weight: bold; color: #2e7d32; background: #f9f9f9; }
+    // 2. 구글 시트 연동 스크립트
+    const spreadsheetId = '1BLu38wjfsMwRk9wp5jnlE-3mlqb-_mZzp0i-Z_fdoXw'; 
+    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
 
-        /* 모델별 시세표 박스 */
-        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; }
-        .device-info { width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
-        .device-info img { width: 130px; margin-bottom: 10px; }
-        .model-title { font-size: 32px; color: #d9534f; font-weight: bold; margin-bottom: 5px; }
-        .spec-text { font-size: 14px; font-weight: bold; color: #333; }
+    async function fetchPrices() {
+        try {
+            const response = await fetch(url);
+            const data = await response.text();
+            // 사장님 시트는 1행부터 데이터이므로 첫 줄부터 가져오기
+            const rows = data.split('\n').map(row => row.replace(/"/g, '').split(','));
+            
+            let html = '';
+            rows.forEach(cols => {
+                if(cols[0] && cols[0].trim() !== "") {
+                    html += `<tr>
+                        <td class="model-name">${cols[0]}</td>
+                        <td class="sk-val">${cols[1] || '0'}</td><td class="sk-val">${cols[2] || '0'}</td>
+                        <td class="kt-val">${cols[3] || '0'}</td><td class="kt-val">${cols[4] || '0'}</td>
+                        <td class="lg-val">${cols[5] || '0'}</td><td class="lg-val">${cols[6] || '0'}</td>
+                    </tr>`;
+                }
+            });
 
-        /* 가격 테이블 */
-        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
-        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 45px; font-size: 14px; }
-        .head-orange { background: #ffccbc; font-weight: bold; }
-        .head-purple { background: #d1c4e9; font-weight: bold; }
-        .head-black { background: #000; color: #fff; font-weight: bold; }
-        .carrier-name { font-weight: bold; background: #f5f5f5; width: 70px; }
-        .price-num { font-size: 22px; font-weight: bold; color: #000; }
-        .plan-info { font-size: 12px; color: #444; line-height: 1.2; }
-
-        /* 카톡 배너 */
-        .kakao-banner {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; background-color: #FEE500; color: #3C1E1E;
-            text-decoration: none; padding: 15px 0; margin-top: 10px;
-            font-size: 18px; font-weight: bold; border-radius: 5px; border: 1px solid #ebcf00;
+            document.getElementById('data-list').innerHTML = html;
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('price-content').style.display = 'table';
+        } catch (error) {
+            document.getElementById('loading').innerText = '데이터 로딩 실패 (공유 설정을 확인해주세요)';
         }
-        .kakao-icon { width: 24px; margin-right: 10px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9">LG 부가</td><td colspan="3">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="7.png" alt="S26" style="width: 130px"> <div class="model-title">S26울트라</div>
-            <div class="spec-text">출고가 1,797,400</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">60</td><td class="price-num">
-					73</td><td class="price-num">109</td><td class="price-num">
-					139</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">63</td><td class="price-num">
-					58</td><td class="price-num">109</td><td class="price-num">
-					108</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="auto-style7">54</td>
-					<td class="auto-style7">
-					55</td><td class="price-num">114</td><td class="price-num">
-					117</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
-</div>
-
-<title>휴대폰 시세표</title>
-    <style>
-        /* 기본 설정 */
-        body { font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; padding: 20px; margin: 0; }
-        .container { width: 650px; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-
-        /* 상단 정책 테이블 */
-        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; border: 2px solid #000; }
-        .policy-table td { border: 1px solid #000; padding: 8px; text-align: center; }
-        .title-red { color: red; font-weight: bold; font-size: 16px; }
-        .date-row { font-size: 20px; font-weight: bold; color: #2e7d32; background: #f9f9f9; }
-
-        /* 모델별 시세표 박스 */
-        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; }
-        .device-info { width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
-        .device-info img { width: 130px; margin-bottom: 10px; }
-        .model-title { font-size: 32px; color: #d9534f; font-weight: bold; margin-bottom: 5px; }
-        .spec-text { font-size: 14px; font-weight: bold; color: #333; }
-
-        /* 가격 테이블 */
-        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
-        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 45px; font-size: 14px; }
-        .head-orange { background: #ffccbc; font-weight: bold; }
-        .head-purple { background: #d1c4e9; font-weight: bold; }
-        .head-black { background: #000; color: #fff; font-weight: bold; }
-        .carrier-name { font-weight: bold; background: #f5f5f5; width: 70px; }
-        .price-num { font-size: 22px; font-weight: bold; color: #000; }
-        .plan-info { font-size: 12px; color: #444; line-height: 1.2; }
-
-        /* 카톡 배너 */
-        .kakao-banner {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; background-color: #FEE500; color: #3C1E1E;
-            text-decoration: none; padding: 15px 0; margin-top: 10px;
-            font-size: 18px; font-weight: bold; border-radius: 5px; border: 1px solid #ebcf00;
-        }
-        .kakao-icon { width: 24px; margin-right: 10px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9" style="height: 33px">LG 부가</td>
-			<td colspan="3" style="height: 33px">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="https://gi.esmplus.com/awaterwave/ALGO/모델/2.png" alt="S26" style="width: 130px"> <div class="model-title">
-				아이폰17</div>
-            <div class="spec-text">출고가 1,243,000</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">15</td><td class="price-num">
-					60</td><td class="price-num"></td><td class="price-num">
-					&nbsp;</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">13</td><td class="price-num">
-					35</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="price-num">5</td><td class="price-num">
-					36</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
-</div>
-
-<title>휴대폰 시세표</title>
-    <style>
-        /* 기본 설정 */
-        body { font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; padding: 20px; margin: 0; }
-        .container { width: 650px; background: #fff; border: 2px solid #000; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-
-        /* 상단 정책 테이블 */
-        .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; border: 2px solid #000; }
-        .policy-table td { border: 1px solid #000; padding: 8px; text-align: center; }
-        .title-red { color: red; font-weight: bold; font-size: 16px; }
-        .date-row { font-size: 20px; font-weight: bold; color: #2e7d32; background: #f9f9f9; }
-
-        /* 모델별 시세표 박스 */
-        .price-wrapper { display: flex; border: 2px solid #000; margin-bottom: 15px; background: #fff; }
-        .device-info { width: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 2px solid #000; padding: 10px; background: #fff; }
-        .device-info img { width: 130px; margin-bottom: 10px; }
-        .model-title { font-size: 32px; color: #d9534f; font-weight: bold; margin-bottom: 5px; }
-        .spec-text { font-size: 14px; font-weight: bold; color: #333; }
-
-        /* 가격 테이블 */
-        .price-table { flex: 1; border-collapse: collapse; table-layout: fixed; }
-        .price-table th, .price-table td { border: 1px solid #000; text-align: center; height: 45px; font-size: 14px; }
-        .head-orange { background: #ffccbc; font-weight: bold; }
-        .head-purple { background: #d1c4e9; font-weight: bold; }
-        .head-black { background: #000; color: #fff; font-weight: bold; }
-        .carrier-name { font-weight: bold; background: #f5f5f5; width: 70px; }
-        .price-num { font-size: 22px; font-weight: bold; color: #000; }
-        .plan-info { font-size: 12px; color: #444; line-height: 1.2; }
-
-        /* 카톡 배너 */
-        .kakao-banner {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; background-color: #FEE500; color: #3C1E1E;
-            text-decoration: none; padding: 15px 0; margin-top: 10px;
-            font-size: 18px; font-weight: bold; border-radius: 5px; border: 1px solid #ebcf00;
-        }
-        .kakao-icon { width: 24px; margin-right: 10px; }
-    .auto-style1 {
-	font-size: large;
-	font-weight: bold;
-	color: #9106E5;
-}
-.auto-style2 {
-	font-size: 22px;
-	font-weight: bold;
-	color: #0619E5;
-}
-.auto-style3 {
-	font-size: 22px;
-	font-weight: bold;
-	color: #E50647;
-}
-.auto-style4 {
-	font-size: 22px;
-	font-weight: bold;
-	color: #0943CA;
-}
-.auto-style5 {
-	font-size: 22px;
-	font-weight: bold;
-	color: #610DFA;
-}
-    .auto-style6 {
-		font-size: x-large;
-		color: #d9534f;
-		font-weight: bold;
-		margin-bottom: 5px;
-	}
-    .auto-style7 {
-	font-size: 22px;
-	font-weight: bold;
-	color: #CB0BFF;
-}
-.auto-style8 {
-	font-weight: bold;
-	width: 70px;
-	color: #CB0BFF;
-	background: #f5f5f5;
-}
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9">LG 부가</td><td colspan="3">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="https://gi.esmplus.com/awaterwave/ALGO/모델/4_P.png" alt="S26" style="width: 130px"> 
-			<div class="auto-style6">아이폰17프로</div>
-            <div class="spec-text">출고가 1,782,000</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">86</td><td class="price-num">
-					107</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">70</td><td class="price-num">
-					90</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="price-num">55</td><td class="price-num">
-					88</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
-</div>
-<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9">LG 부가</td><td colspan="3">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="https://gi.esmplus.com/awaterwave/ALGO/모델/012.png" alt="S26" style="width: 130px"> 
-			<div class="auto-style6">갤럭시Z플립7</div>
-            <div class="spec-text">출고가 1,485,000</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">9</td><td class="price-num">
-					53</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">16</td><td class="price-num">
-					25</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="price-num">17</td><td class="price-num">
-					9</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-</div>	
-<div class="container">
-    <table class="policy-table">
-        <tr><td colspan="4" class="title-red">요금제/부가서비스 선택사항입니다. 상담시 꼭 말씀해주세요</td></tr>
-        <tr class="date-row"><td colspan="2">정책일</td><td colspan="2">2026-04-02</td></tr>
-        <tr><td bgcolor="#fff3e0">요금제 유지</td><td colspan="3">3사 동일 185일 이후 요금제 변경 가능</td></tr>
-        <tr><td bgcolor="#fce4ec">SK 부가</td><td colspan="3">우주패스 / 마이스마트콜 / 보험 (2개월)</td></tr>
-        <tr><td bgcolor="#fff3e0">KT 부가</td><td colspan="3">필수팩(4개월), 파손보험(4개월)</td></tr>
-        <tr><td bgcolor="#e8f5e9">LG 부가</td><td colspan="3">교보문고 SM+구글원 / v컬러링 플러스+벨링콘텐츠팩 / 보험 (94일 유지)</td></tr>
-    </table>
-
-    <div class="price-wrapper">
-        <div class="device-info">
-            <img src="https://gi.esmplus.com/awaterwave/ALGO/모델/014_f.png" alt="S26" style="width: 130px"> 
-			<div class="auto-style6">갤럭시Z폴드7</div>
-            <div class="spec-text">출고가 2,379,300</div>
-            <div class="spec-text">용량 256GB</div>
-        </div>
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="carrier-name">통신사</th>
-                    <th colspan="2" class="head-orange">공시지원금</th>
-                    <th colspan="2" class="head-purple">선택약정</th>
-                    <th rowspan="2" class="head-black">요금제</th>
-                </tr>
-                <tr style="font-size:11px;">
-                    <th class="head-orange">번이</th><th class="head-orange">기변</th>
-                    <th class="head-purple">번이</th><th class="head-purple">기변</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="carrier-name">SKT</td><td class="price-num">119</td><td class="price-num">
-					150</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미엄<br>(109,000)</td></tr>
-                <tr><td class="carrier-name">KT</td><td class="price-num">123</td><td class="price-num">
-					124</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">초이스스페셜<br>(110,000)</td></tr>
-                <tr><td class="carrier-name">LGU+</td><td class="price-num">124</td><td class="price-num">
-					116</td><td class="price-num">&nbsp;</td><td class="price-num">&nbsp;</td><td class="plan-info">프리미어슈퍼<br>(115,000)</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-banner">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" class="kakao-icon">
-        실시간 카톡 상담 및 예약하기 (클릭)
-    </a>
-
-
+    }
+    fetchPrices();
+</script>
 
 </body>
 </html>
-
-</div>
-
-<!-- 매장 안내 -->
-<div style="border:1px solid #ddd;padding:15px;margin-bottom:20px;font-size:14px;">
-  <b>매장 안내 </b><br><br>동작구 보라매점<br>
-  인천 부평점<br>
-  안산 초지동점<br>
-  경기 시흥 정왕동점<br>
-  시흥 대야동점<br>
-  구로 신도림점<br>
-  구로 온라인점
-</div>
-
-<!-- 안내문 -->
-<div style="border:2px dashed #ff3b30;padding:15px;margin-bottom:20px;color:#c40000;font-weight:600;font-size:14px;">
-    2026 04-02<br>♥ 인터넷 동시가입 제휴카드 X / 중고반납 X<br>
-  ♥ 시세표 그대로 진행됩니다 (추가금 없음)<br>
-  ♥ 가격 언급 시 상담 종료됩니다<br><br>
-  ♥ 신분증 필수 + 본인 방문<br>
-  ♥ 채널톡 예약 후 방문 부탁드립니다 <br>
-<br>시세표는 공통지원 기준이며, 선택약정시 공통지원 금액 만큼 빼시면되니다.<br>모든시세는추가지원금 일부 설정되어있습니다. <br>요금제 
-	185일 이후 변경가능합니다.
-</div>
-
-<!-- 메인 시세표 -->
-<div style="overflow-x:auto;">
-  <table border="1" cellspacing="0" cellpadding="8" style="width:100%;border-collapse:collapse;text-align:center;font-size:14px;">
-    <tr style="background:#f3f3f3;font-weight:700;">
-      <th>모델</th>
-      <th style="color:#d32f2f;">SK 번이</th>
-      <th style="color:#d32f2f;">SK 기변</th>
-      <th style="color:#1565c0;">KT 번이</th>
-      <th style="color:#1565c0;">KT 기변</th>
-      <th style="color:#8e24aa;">LG 번이</th>
-      <th style="color:#8e24aa;">LG 기변</th>
-    </tr>
-
-    <tr style="background:#fff7bf;font-weight:700;">
-      <td colspan="7">갤럭시 S26 시리즈</td>
-    </tr>
-    <tr>
-      <td style="height: 31px">S26 256G</td>
-		<td class="auto-style1" style="height: 31px"><strong>3</strong></td>
-		<td class="auto-style1" style="height: 31px"><strong>21</strong></td>
-		<td class="auto-style2" style="height: 31px">
-		<strong>8</strong></td><td class="auto-style2" style="height: 31px">
-		<strong>2</strong></td>
-		<td class="auto-style3" style="height: 31px"><strong>0</strong></td>
-		<td class="auto-style3" style="height: 31px">
-		<strong>2</strong></td>
-    </tr>
-    <tr>
-      <td>S26+ 256G</td><td class="auto-style1"><strong>29</strong></td>
-		<td class="auto-style1"><strong>45</strong></td><td class="auto-style2">
-		<strong>34</strong></td><td class="auto-style2"><strong>14</strong></td>
-		<td class="auto-style3">20</td><td class="auto-style3">
-		21</td>
-    </tr>
-    <tr>
-      <td>S26 울트라 256G</td><td class="auto-style1"><strong>58</strong></td>
-		<td class="auto-style1"><strong>76</strong></td>
-		<td class="auto-style2"><strong>63</strong></td><td class="auto-style2">
-		<strong>58</strong></td><td class="auto-style3"><strong>54</strong></td>
-		<td class="auto-style3"><strong>5</strong>5</td>
-    </tr>
-    <tr>
-      <td style="height: 50px">S26 512G </td>
-		<td class="auto-style1" style="height: 50px"><strong>29</strong></td>
-		<td class="auto-style1" style="height: 50px"><strong>45</strong></td>
-		<td class="auto-style2" style="height: 50px"><strong>34</strong></td>
-		<td class="auto-style2" style="height: 50px"><strong>14</strong></td>
-		<td class="auto-style3" style="height: 50px"><strong>25</strong></td>
-		<td class="auto-style3" style="height: 50px">
-		<strong>13</strong></td>
-    </tr>
-    <tr>
-      <td>S26+ 512G</td><td class="auto-style1"><strong>49</strong></td>
-		<td class="auto-style1"><strong>65</strong></td>
-		<td class="auto-style2"><strong>54</strong></td><td class="auto-style2">
-		<strong>34</strong></td>
-		<td class="auto-style3"><strong>45</strong></td><td class="auto-style3">
-		<strong>35</strong></td>
-    </tr>
-    <tr>
-      <td>S26 울트라512G</td><td class="auto-style1"><strong>83</strong></td>
-		<td class="auto-style1"><strong>99</strong></td>
-		<td class="auto-style2"><strong>88</strong></td>
-		<td class="auto-style2"><strong>68</strong></td><td class="auto-style3">
-		<strong>79</strong></td>
-		<td class="auto-style3"><strong>68</strong></td>
-    </tr>
-
-    <tr style="background:#fff7bf;font-weight:700;">
-      <td colspan="7">아이폰17 시리즈</td>
-    </tr>
-    <tr>
-      <td style="height: 31px">아이폰17 256</td>
-		<td class="auto-style4" style="height: 31px"><strong>15</strong></td>
-		<td class="auto-style4" style="height: 31px"><strong>58</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>13</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>35</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>5</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>36</strong></td>
-    </tr>
-    <tr>
-      <td style="height: 31px">아이폰17 512</td>
-		<td class="auto-style4" style="height: 31px"><strong>44</strong></td>
-		<td class="auto-style4" style="height: 31px"><strong>87</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>46</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>68</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>35</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>67</strong></td>
-    </tr>
-    <tr>
-      <td style="height: 31px">아이폰17 Pro 256</td>
-		<td class="auto-style4" style="height: 31px"><strong>86</strong></td>
-		<td class="auto-style4" style="height: 31px"><strong>107</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>70</strong></td>
-		<td class="auto-style5" style="height: 31px"><strong>90</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>55</strong></td>
-		<td class="auto-style6" style="height: 31px"><strong>88</strong></td>
-    </tr>
-    <tr>
-      <td>아이폰17 Pro 512</td><td class="auto-style4"><strong>117</strong></td>
-		<td class="auto-style4"><strong>138</strong></td>
-		<td class="auto-style5"><strong>71</strong></td>
-		<td class="auto-style5"><strong>122</strong></td>
-		<td class="auto-style6"><strong>86</strong></td>
-		<td class="auto-style6"><strong>119</strong></td>
-    </tr>
-    <tr>
-      <td>&nbsp;아이폰 Air 256G</td><td class="auto-style4"><strong>46</strong></td>
-		<td class="auto-style4"><strong>68</strong></td>
-		<td class="auto-style5"><strong>45</strong></td>
-		<td class="auto-style5"><strong>69</strong></td>
-		<td class="auto-style6"><strong>-5</strong></td>
-		<td class="auto-style6"><strong>66</strong></td>
-    </tr>
-    <tr>
-      <td>&nbsp;아이폰 Air 512G</td><td class="auto-style4"><strong>76</strong></td>
-		<td class="auto-style4"><strong>98</strong></td>
-		<td class="auto-style5"><strong>73</strong></td>
-		<td class="auto-style5"><strong>96</strong></td>
-		<td class="auto-style6"><strong>9</strong></td>
-		<td class="auto-style6"><strong>98</strong></td>
-    </tr>
-    <tr>
-      <td>추가모델</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-
-    <tr style="background:#fff7bf;font-weight:700;">
-      <td colspan="7">갤럭시 폴더블</td>
-    </tr>
-    <tr>
-      <td>플립7 256</td><td class="auto-style8"><strong>9</strong></td>
-		<td class="auto-style8"><strong>53</strong></td>
-		<td class="auto-style7"><strong>16</strong></td>
-		<td class="auto-style7"><strong>25</strong></td>
-		<td class="auto-style6"><strong>17</strong></td>
-		<td class="auto-style6"><strong>9</strong></td>
-    </tr>
-    <tr>
-      <td style="height: 55px">폴드7 256</td>
-		<td class="auto-style8" style="height: 55px"><strong>117</strong></td>
-		<td class="auto-style8" style="height: 55px"><strong>146</strong></td>
-		<td class="auto-style7" style="height: 55px"><strong>122</strong></td>
-		<td class="auto-style7" style="height: 55px"><strong>123</strong></td>
-		<td class="auto-style6" style="height: 55px"><strong>124</strong></td>
-		<td class="auto-style6" style="height: 55px"><strong>116</strong></td>
-    </tr>
-    <tr>
-      <td>플립7_FE</td><td class="auto-style8"><strong>0</strong></td>
-		<td class="auto-style8"><strong>20</strong></td>
-		<td class="auto-style7"><strong>5</strong></td>
-		<td class="auto-style7"><strong>15</strong></td>
-		<td class="auto-style18"><strong>-</strong></td>
-		<td class="auto-style19"><strong>-</strong></td>
-    </tr>
-    <tr>
-      <td>플립6</td><td>12</td><td>38</td><td>-</td><td>-</td><td>8</td><td>26</td>
-    </tr>
-
-    <tr>
-      <td>폴드6</td><td>&nbsp;</td><td>&nbsp;</td><td>63</td><td>71</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-
-    <tr style="background:#fff7bf;font-weight:700;">
-      <td colspan="7">기타 모델</td>
-    </tr>
-    <tr>
-      <td>갤럭시S25_256G</td><td class="auto-style8"><strong>28</strong></td>
-		<td class="auto-style8"><strong>66</strong></td>
-		<td class="auto-style9"><strong>18</strong></td>
-		<td class="auto-style9"><strong>43</strong></td>
-		<td class="auto-style10"><strong>45</strong></td>
-		<td class="auto-style10"><strong>45</strong></td>
-    </tr>
-    <tr>
-      <td>갤럭시S25+_256G</td><td class="auto-style8"><strong>45</strong></td>
-		<td class="auto-style8"><strong>92</strong></td>
-		<td class="auto-style9"><strong>38</strong></td>
-		<td class="auto-style9"><strong>65</strong></td>
-		<td class="auto-style10"><strong>65</strong></td>
-		<td class="auto-style10"><strong>68</strong></td>
-    </tr>
-    <tr>
-      <td>갤럭시S25울트라_256G</td><td class="auto-style8"><strong>80</strong></td>
-		<td class="auto-style8"><strong>126</strong></td>
-		<td class="auto-style9"><strong>72</strong></td>
-		<td class="auto-style9"><strong>96</strong></td>
-		<td class="auto-style10"><strong>94</strong></td>
-		<td class="auto-style10"><strong>99</strong></td>
-    </tr>
-    <tr>
-      <td>갤럭시S25엣지_256G</td><td class="auto-style8"><strong>17</strong></td>
-		<td class="auto-style8"><strong>49</strong></td><td class="auto-style9">
-		<strong>24</strong></td><td class="auto-style9"><strong>17</strong></td>
-		<td class="auto-style10"><strong>19</strong></td>
-		<td class="auto-style10">
-		<strong>19</strong></td>
-    </tr>
-    <tr>
-      <td>S25FE_256G</td><td class="auto-style8"><strong>0</strong></td>
-		<td class="auto-style8"><strong>4</strong></td><td class="auto-style9">
-		<strong>-20</strong></td><td class="auto-style9"><strong>-9</strong></td>
-		<td class="auto-style10"><strong>-34</strong></td>
-		<td class="auto-style10"><strong>-1</strong></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-  </table>
-</div>
-
-<div style="font-size:13px;color:#666;margin-top:10px;">
-  ※ 단위 : 만원 / 음수는 차비<br>
-  ※ 시세는 수시 변동됩니다
-</div>
-
-<br>
-
-<!-- 중저가 / 효도폰 -->
-<div style="margin:30px 0 10px 0;font-size:20px;font-weight:700;text-align:center;">
-  중저가 · 효도 · 학생폰
-</div>
-
-<div style="overflow-x:auto;">
-  <table border="1" cellspacing="0" cellpadding="8" style="width:100%;border-collapse:collapse;text-align:center;font-size:14px;">
-    <tr style="background:#f3f3f3;font-weight:700;">
-      <th>모델</th>
-      <th style="color:#d32f2f;">SK</th>
-      <th style="color:#1565c0;">KT</th>
-      <th style="color:#8e24aa;">LG</th>
-    </tr>
-
-    <tr style="background:#fff7bf;font-weight:700;">
-      <td colspan="4">SK 성인33 / KT 성인61 / LG 성인47 기준</td>
-    </tr>
-
-    <tr>
-      <td>A17</td><td>신규 -13</td><td>&nbsp;</td><td>-7</td>
-    </tr>
-    <tr>
-      <td>A366</td><td>-</td><td>5</td><td>-</td>
-    </tr>
-    <tr>
-      <td style="height: 31px">폴더6</td><td style="height: 31px">&nbsp;</td>
-		<td style="height: 31px">-</td><td style="height: 31px">-</td>
-    </tr>
-    <tr>
-      <td>와이드3</td><td>번이 -4</td><td>-</td><td>-</td>
-    </tr>
-    <tr>
-      <td>프로키즈폰 SK A17</td><td>&nbsp;</td><td>-</td><td>-</td>
-    </tr>
-    <tr>
-      <td class="auto-style22" style="height: 38px">&nbsp;</td>
-		<td style="height: 38px">-</td><td style="height: 38px">-</td>
-		<td style="height: 38px">&nbsp;</td>
-    </tr>
-    <tr>
-      <td class="auto-style22"><strong>A17S 무너 에디션2키즈폰</strong></td><td>-</td><td>-</td><td>
-		<span class="auto-style21"><strong>-15 신규(결합시) </strong></span>/ 키즈29</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td><td>-</td><td>-</td><td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>추가모델</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>추가모델</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>추가모델</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-  </table>
-</div>
-
-<br>
-
-<!-- 부가서비스 -->
-<div style="margin:30px 0 10px 0;font-size:20px;font-weight:700;text-align:center;">
-  부가서비스 안내
-</div>
-
-<div style="text-align:center;color:#c40000;font-size:14px;font-weight:700;margin-bottom:15px;">
-  단말기 보험은 필수로 들어갑니다 (U+ 안심패스 95일)<br>보험은 미가입시 +6<br>
-  상조 X / 워치 끼워팔기 X
-</div>
-
-<div style="overflow-x:auto;">
-  <table border="1" cellspacing="0" cellpadding="8" style="width:100%;border-collapse:collapse;text-align:center;font-size:14px;">
-    <tr style="background:#f3f3f3;font-weight:700;">
-      <th style="height: 31px">통신사</th>
-      <th style="height: 31px">부가서비스</th>
-      <th style="height: 31px">금액</th>
-      <th style="height: 31px">기간</th>
-      <th style="height: 31px">미가입시</th>
-    </tr>
-
-    <tr>
-      <td rowspan="3" style="background:#d32f2f;color:#fff;">SK</td>
-      <td>우주패스(선택약정만)</td>
-      <td>무료</td>
-      <td>M+3</td>
-      <td>3추가</td>
-    </tr>
-    <tr>
-      <td>마이스마트콜3</td>
-      <td>3,500원</td>
-      <td>M+2</td>
-      <td>2추가</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-
-    <tr>
-      <td rowspan="3" style="background:#1565c0;color:#fff;">KT</td>
-      <td>필수팩 L1/L3</td>
-      <td>9,900원</td>
-      <td>M+3</td>
-      <td>5추가</td>
-    </tr>
-    <tr>
-      <td>OTT구독+스타벅스</td>
-      <td>13,900원</td>
-      <td>M+3</td>
-      <td>5추가</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-
-    <tr>
-      <td rowspan="2" style="background:#8e24aa;color:#fff;">LG</td>
-      <td>교보문고 SM+구글원</td>
-      <td>16,500원</td>
-      <td>M+3</td>
-      <td>5추가</td>
-    </tr>
-    <tr>
-      <td>v컬러링 플러스+벨링콘텐츠팩</td>
-      <td>15,400원</td>
-      <td>M+3</td>
-      <td>6추가</td>
-    </tr>
-
-    <tr>
-      <td style="background:#f3f3f3;font-weight:700;">추가</td>
-      <td>추가 부가서비스</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td style="background:#f3f3f3;font-weight:700;">추가</td>
-      <td>추가 부가서비스</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
-</div>
-
-<div style="font-size:13px;color:#c40000;text-align:center;font-weight:700;margin-top:10px;line-height:1.6;">
-  ※ SK, KT, LG 정책 및 부가서비스는 항목 따라 다를 수 있습니다<br>
-  ※ 실제 개통 시 시점 정책 기준
-</div>
-
-<br>
-
-<!-- 하단 상담 버튼 -->
-<div style="text-align:center;margin:30px 0;">
-  <a href="https://pf.kakao.com/_bFhTM/chat" target="_blank">
-    <div style="background:#FEE500;color:#000;font-weight:700;padding:18px;border-radius:8px;font-size:20px;">
-      카카오톡 상담 바로가기
     </div>
   </a>
 </div>
@@ -1100,8 +213,7 @@
 <p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
 <span style="font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">&nbsp;</span>
 <p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
-<span style="font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">#성동구#용산#동대문#역삼#신정#석촌#오금#가락시장#홍대#군포#당산#양평#문래#교대#반포#방배#이수#광주#남부터미널#사당#낙성대#서울대#관악#이태원#숭실대#중앙대#수원#하남#부천#화성#양천#안산#송파#잠실#광진#동작#마곡#봉천#강남#한남#대치동#도곡#삼성동#압구정#청담#목동#성남#논현#개포#수서#신사동#분당#신길#문정#여의도#신도림#판교#안양#광명#강서#양천구#의정부#고양#파주#일산#덕양구#화정#중랑구#상봉#면목#중곡#왕십리#청량리#월계#석계#노원#안성#양평#오목교#까치산#포천#구리#건대#오산#평택#군자#잠원#사평#내방#종합운동장#학동#고속터미널#아차산#뚝섬#도봉구#양재#군포#남양주#성남#용인#부산#대구#광주#창원#울산#포항#수원#시흥#부천#안산#일산#파주#고양#대전#천안#남양주#다산#포천#강동#강서#청주#안산#시흥#부천#광명#김포#원주#강원도#강원#부평#연수구#송도#안성&nbsp;</span>
-<p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
+&nbsp;<p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
 <p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
 <p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
 <p>&nbsp;</p>
