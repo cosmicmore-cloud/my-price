@@ -1,111 +1,64 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>워터웨이브 실시간 시세표 | 온라인·택배 전문</title>
-    <style>
-        :root { --sk: #E50647; --kt: #0619E5; --lg: #CB0BFF; --main-blue: #0047AB; }
-        body { font-family: 'Malgun Gothic', sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
-        .container { max-width: 820px; margin: 0 auto; background: #fff; border: 1px solid #ddd; }
-        
-        /* 상단 알림 및 헤더 */
-        .top-banner { background: var(--main-blue); color: white; text-align: center; padding: 12px; font-weight: bold; font-size: 15px; }
-        .header-img { width: 100%; display: block; }
-        
-        .notice-area { padding: 15px; }
-        .delivery-alert { border: 2px solid #ff3b30; background: #fff5f5; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
-        .delivery-alert h2 { margin: 0 0 8px 0; color: #d32f2f; font-size: 18px; }
-        .delivery-alert p { margin: 0; font-size: 14px; font-weight: bold; color: #444; line-height: 1.5; }
-
-        /* [수정] 인터넷+TV 배너 (링크 공란) */
-        .internet-link { text-decoration: none; display: block; margin: 15px; }
-        .internet-banner { background: linear-gradient(135deg, #0047AB, #0073ff); color: white; padding: 22px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(0,71,171,0.3); }
-        .internet-banner h3 { margin: 0; font-size: 19px; letter-spacing: -0.5px; }
-        .internet-banner p { margin: 5px 0 0 0; font-size: 13px; opacity: 0.9; }
-        .internet-price { font-size: 26px; font-weight: 900; color: #FEE500; text-align: right; }
-
-        /* 시세표 영역 */
-        .price-section { padding: 0 10px; }
-        .table-title { font-size: 18px; font-weight: bold; margin: 15px 5px; display: flex; align-items: center; }
-        .table-title::before { content: ''; width: 4px; height: 18px; background: var(--main-blue); margin-right: 8px; display: inline-block; }
-        
-        .price-table { width: 100%; border-collapse: collapse; text-align: center; table-layout: fixed; border: 1px solid #000; margin-bottom: 20px; }
-        .price-table th { background: #333; color: #fff; padding: 10px 2px; font-size: 12px; border: 1px solid #444; }
-        .price-table td { border: 1px solid #ddd; padding: 12px 2px; font-size: 16px; font-weight: bold; }
-        .model-name { background: #f9f9f9; text-align: left; padding-left: 8px !important; font-size: 12px; color: #000; border-right: 1px solid #000 !important; }
-        
-        .sk-val { color: var(--sk); border-right: 1px solid #eee; }
-        .kt-val { color: var(--kt); border-right: 1px solid #eee; }
-        .lg-val { color: var(--lg); }
-        
-        /* 버튼 영역 */
-        .btn-area { padding: 0 15px 20px; }
-        .kakao-btn { display: block; background: #FEE500; color: #3C1E1E; text-align: center; padding: 18px; font-weight: bold; text-decoration: none; font-size: 19px; border-radius: 8px; border: 1px solid #ebcf00; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .location-btn { display: block; background: #ffffff; color: #0047AB; text-align: center; padding: 15px; font-weight: bold; text-decoration: none; font-size: 16px; border-radius: 8px; border: 2px solid #0047AB; margin-bottom: 10px; transition: 0.3s; }
-        .band-btn { display: block; background: #2db400; color: white; text-align: center; padding: 15px; font-weight: bold; text-decoration: none; font-size: 16px; border-radius: 8px; }
-        
-        .footer-info { padding: 20px; font-size: 12px; background: #f9f9f9; color: #666; line-height: 1.8; border-top: 1px solid #eee; }
-        .loading { text-align: center; padding: 50px; font-weight: bold; color: #666; }
-    </style>
-</head>
-<body>
-
 <div class="container">
-    <div class="top-banner">⛽ 유가상승 걱정 끝! 워터웨이브는 전국 "당일 무료배송" 전문입니다.</div>
+    <div class="top-banner" style="background:#1a1a1a; color:white; text-align:center; padding:12px; font-weight:bold;">알고모바일은 전국 5개 지점 "정찰제 내방" 전문 매장입니다.</div>
     
-    <img src="algoofm1.png" class="header-img">
+    <img src="algoofm1.png" class="header-img" style="width:100%; display:block;">
     
-    <div class="notice-area">
-        <div class="delivery-alert">
-            <h2>📦 비대면 온라인·택배 개통 안내</h2>
-            <p>기름값 들여서 멀리 방문하지 마세요!<br>집에서 편하게 시세표 확인하고 택배로 받으세요.</p>
+    <div class="notice-area" style="padding:20px; text-align:center;">
+        <div class="delivery-alert" style="border:2px solid #000; padding:20px; border-radius:10px; background:#f9f9f9;">
+            <h2 style="margin:0; color:#000; font-size:22px; font-weight:900;">📍 알고모바일 내방 및 방문안내</h2>
+            <p style="margin:10px 0 0 0; font-weight:bold; color:#555; line-height:1.6;">
+                제휴카드 낚시 / 기기반납 / 할부조건 없는 정직한 현금완납 시세입니다.<br>
+                <span style="color:#d32f2f;">매장 내 가격 언급 시 정책 미적용 및 상담 종료됩니다.</span>
+            </p>
         </div>
 
-        <div style="text-align:center; font-weight:bold; font-size:18px; color:#111; margin-bottom:10px;">
-            📅 <span id="today-date"></span> 실시간 시세표
+        <div style="text-align:center; font-weight:bold; font-size:20px; color:#111; margin:20px 0 10px 0;">
+            📅 <span id="today-date"></span> 알고모바일 실시간 단가표
         </div>
     </div>
 
-    <!-- [수정] 인터넷+TV 배너 (href="#" 부분에 나중에 링크를 넣으세요) -->
-    <a href="#" class="internet-link">
-        <div class="internet-banner">
+    <!-- 인터넷+TV 배너 (링크 공란 유지) -->
+    <a href="#" class="internet-link" style="text-decoration:none; display:block; margin:0 15px 20px;">
+        <div class="internet-banner" style="background:linear-gradient(135deg, #0047AB, #0073ff); color:white; padding:20px; border-radius:12px; display:flex; align-items:center; justify-content:space-between;">
             <div>
-                <h3>🌐 인터넷+TV 결합 할인</h3>
-                <p>휴대폰 동시 가입 시 혜택 최대 적용!</p>
+                <h3 style="margin:0; font-size:18px;">🌐 인터넷+TV 신규가입 혜택</h3>
+                <p style="margin:5px 0 0 0; font-size:13px; opacity:0.9;">휴대폰 결합 시 지원금 최대 적용!</p>
             </div>
-            <div class="internet-price">최대 47만원 지급</div>
+            <div class="internet-price" style="font-size:24px; font-weight:900; color:#FEE500;">최대 47만원 지급</div>
         </div>
     </a>
 
-    <div id="loading" class="loading">최신 시세를 불러오는 중...</div>
+    <div id="loading" class="loading" style="text-align:center; padding:50px; font-weight:bold; color:#666;">최신 단가를 불러오는 중...</div>
     
-    <div class="price-section">
-        <div class="table-title">실시간 휴대폰 시세 (현금완납가)</div>
-        <table class="price-table" id="price-content" style="display:none;">
+    <div class="price-section" style="padding:0 10px;">
+        <div class="table-title" style="font-size:18px; font-weight:bold; margin-bottom:10px;">실시간 휴대폰 시세 (현금완납가)</div>
+        <table class="price-table" id="price-content" style="display:none; width:100%; border-collapse:collapse; text-align:center; table-layout:fixed; border:1px solid #000;">
             <thead>
-                <tr>
-                    <th style="width:28%">모델명</th>
-                    <th style="background:#fff0f0; color:#d32f2f;">SK번이</th><th style="background:#fff0f0; color:#d32f2f;">SK기변</th>
-                    <th style="background:#f0f5ff; color:#1565c0;">KT번이</th><th style="background:#f0f5ff; color:#1565c0;">KT기변</th>
-                    <th style="background:#faf0ff; color:#8e24aa;">LG번이</th><th style="background:#faf0ff; color:#8e24aa;">LG기변</th>
+                <tr style="background:#333; color:#fff;">
+                    <th style="width:28%; padding:10px; font-size:12px; border:1px solid #444;">모델명</th>
+                    <th style="background:#fff0f0; color:#d32f2f; padding:10px; border:1px solid #444;">SK번이</th>
+                    <th style="background:#fff0f0; color:#d32f2f; padding:10px; border:1px solid #444;">SK기변</th>
+                    <th style="background:#f0f5ff; color:#1565c0; padding:10px; border:1px solid #444;">KT번이</th>
+                    <th style="background:#f0f5ff; color:#1565c0; padding:10px; border:1px solid #444;">KT기변</th>
+                    <th style="background:#faf0ff; color:#8e24aa; padding:10px; border:1px solid #444;">LG번이</th>
+                    <th style="background:#faf0ff; color:#8e24aa; padding:10px; border:1px solid #444;">LG기변</th>
                 </tr>
             </thead>
             <tbody id="data-list"></tbody>
         </table>
     </div>
 
-    <div class="btn-area">
-        <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-btn">💬 카톡 상담 및 택배 접수하기</a>
-        <a href="https://cosmicmore-cloud.github.io/my-price/map.html" class="location-btn">📍 전국 지점 위치 및 방문안내 보기</a>
-        <a href="https://m.site.naver.com/1Z5np" target="_blank" class="band-btn">📢 워터웨이브 특가공지 밴드</a>
+    <div class="btn-area" style="padding:20px 15px;">
+        <a href="https://cosmicmore-cloud.github.io/my-price/map.html" class="location-btn" style="display:block; background:#000; color:#fff; text-align:center; padding:18px; font-weight:bold; text-decoration:none; font-size:19px; border-radius:8px; margin-bottom:10px;">📍 전국 지점 위치 및 방문예약 하기</a>
+        <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="kakao-btn" style="display:block; background:#FEE500; color:#3C1E1E; text-align:center; padding:18px; font-weight:bold; text-decoration:none; font-size:18px; border-radius:8px; border:1px solid #ebcf00; margin-bottom:10px;">💬 실시간 카톡 상담 (택배문의 가능)</a>
+        <a href="https://m.site.naver.com/1Z5np" target="_blank" class="band-btn" style="display:block; background:#2db400; color:white; text-align:center; padding:15px; font-weight:bold; text-decoration:none; font-size:16px; border-radius:8px;">📢 알고모바일 특가공지 밴드</a>
     </div>
     
-    <div class="footer-info">
-        <b>[워터웨이브=알고모바일 안내]</b><br>
-        보라매 / 부평 / 안산 / 정왕 / 신도림 / 전국택배<br>
-        ※ 유가상승 대비 비대면 온라인 개통 정책이 강화되었습니다.<br>
-        ※ 모든 시세는 실시간 구글 시트와 연동되어 정직하게 운영됩니다.
+    <div class="footer-info" style="padding:20px; font-size:13px; background:#f9f9f9; color:#555; line-height:1.8; border-top:1px solid #eee;">
+        <b>[알고모바일 이용 안내]</b><br>
+        보라매 / 부평 / 안산 / 정왕 / 신도림 / 전국택배 가능<br>
+        ※ 신분증 지참 필수 및 예약 후 방문 부탁드립니다.<br>
+        ※ 모든 시세는 실시간  운영됩니다.
     </div>
 </div>
 
@@ -128,10 +81,13 @@
             rows.forEach(cols => {
                 if(cols[0] && cols[0].trim() !== "" && cols[0] !== "모델명") {
                     html += `<tr>
-                        <td class="model-name">${cols[0]}</td>
-                        <td class="sk-val">${cols[1] || '-'}</td><td class="sk-val">${cols[2] || '-'}</td>
-                        <td class="kt-val">${cols[3] || '-'}</td><td class="kt-val">${cols[4] || '-'}</td>
-                        <td class="lg-val">${cols[5] || '-'}</td><td class="lg-val">${cols[6] || '-'}</td>
+                        <td class="model-name" style="padding:12px 5px; border:1px solid #ddd; font-size:13px; text-align:left; background:#f9f9f9;">${cols[0]}</td>
+                        <td class="sk-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#E50647;">${cols[1] || '-'}</td>
+                        <td class="sk-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#E50647;">${cols[2] || '-'}</td>
+                        <td class="kt-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#0619E5;">${cols[3] || '-'}</td>
+                        <td class="kt-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#0619E5;">${cols[4] || '-'}</td>
+                        <td class="lg-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#CB0BFF;">${cols[5] || '-'}</td>
+                        <td class="lg-val" style="padding:12px 2px; border:1px solid #ddd; font-weight:bold; color:#CB0BFF;">${cols[6] || '-'}</td>
                     </tr>`;
                 }
             });
@@ -145,9 +101,6 @@
     }
     fetchPrices();
 </script>
-</body>
-</html>
-</div>
 <div style="color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif; max-width: 820px; margin: 0px auto; padding: 12px;">
    <div style="border: 1px solid rgb(229, 231, 235); border-radius: 18px; overflow: hidden; background: rgb(255, 255, 255);">
       <p style="margin: 1em 0px; font-weight: 400; color: #404040; font-family: 'Malgun Gothic', '맑은 고딕', Gulim, 굴림, helvetica, 'Apple SD Gothic Neo', AppleGothic, Roboto, Dotum, sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: -0.5px; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
@@ -253,7 +206,3 @@
 <p style="margin: 0px; font-weight: 400; color: #000000; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-</div>
