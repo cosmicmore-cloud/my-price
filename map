@@ -1,0 +1,711 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@js(/layout/basic/js/main.js)-->
+<!--@css(/layout/basic/css/main.css)-->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>매장소개 | ALGO모바일</title>
+  <meta name="description" content="매장 소개/지점 안내/상담 신청 랜딩 예시" />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#11131a;
+      --text:#e9ecf1;
+      --muted:#a7b0be;
+      --line:rgba(255,255,255,.10);
+      --accent:#6ae4ff;
+      --accent2:#8b5cff;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius2: 22px;
+      --max: 1080px;
+      
+    }
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(106,228,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(139,92,255,.18), transparent 60%),
+        linear-gradient(180deg, #07080c 0%, #0b0c10 55%, #07080c 100%);
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,12,16,.60);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .inner{
+      height:64px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+      max-width:var(--max); margin:0 auto; padding:0 18px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.4px}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(106,228,255,1), rgba(139,92,255,1));
+      box-shadow: 0 10px 30px rgba(106,228,255,.12);
+    }
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      padding:10px 12px; border:1px solid var(--line); border-radius:999px;
+      color:var(--muted); font-size:13px; background: rgba(255,255,255,.03);
+    }
+    .chip:hover{border-color: rgba(255,255,255,.20); color:var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700; font-size:14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, rgba(106,228,255,1), rgba(139,92,255,1));
+      color:#0b0c10;
+      box-shadow: 0 18px 50px rgba(106,228,255,.10), 0 18px 50px rgba(139,92,255,.10);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+
+    .hero{padding:58px 0 26px}
+    .heroGrid{
+      display:grid; gap:18px;
+      grid-template-columns: 1.15fr .85fr;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .heroGrid{grid-template-columns:1fr} }
+
+    .heroCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      padding:26px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:700; font-size:13px;
+    }
+    .spark{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(106,228,255,.18);
+    }
+    h1{margin:14px 0 10px; font-size:42px; line-height:1.1; letter-spacing:-1px}
+    @media (max-width: 520px){ h1{font-size:34px} }
+
+    .sub{color:var(--muted); font-size:16px; line-height:1.6; max-width:52ch}
+    .heroActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+
+    .miniCard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .miniCard h3{margin:0; font-size:16px; letter-spacing:-.4px}
+    .miniCard p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+
+    .kpiRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .kpi{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:14px; padding:12px}
+    .kpi .n{font-size:20px; font-weight:900; letter-spacing:-.6px}
+    .kpi .t{font-size:12px; color:var(--muted); margin-top:4px}
+
+    .section{padding:34px 0}
+    .sectionHeader{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:16px}
+    .sectionHeader h2{margin:0; font-size:22px; letter-spacing:-.5px}
+    .sectionHeader .desc{color:var(--muted); font-size:14px; line-height:1.55; max-width:65ch}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+
+    .feature{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius: var(--radius2); padding:18px}
+    .feature .icon{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(106,228,255,.22), rgba(139,92,255,.22));
+      border:1px solid rgba(255,255,255,.10);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:10px; font-weight:900;
+    }
+    .feature h3{margin:0 0 8px; font-size:16px; letter-spacing:-.4px}
+    .feature p{margin:0; color:var(--muted); font-size:14px; line-height:1.6}
+
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin:14px 0 10px}
+    .search{
+      flex:1; min-width:220px; display:flex; gap:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px; padding:10px 12px; align-items:center;
+    }
+    .search input{flex:1; background:transparent; border:none; outline:none; color:var(--text); font-size:14px}
+    .select{
+      border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--text);
+      border-radius: 999px; padding: 10px 12px; font-size:14px; outline:none;
+    }
+
+    .storeGrid{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    @media (max-width: 980px){ .storeGrid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 620px){ .storeGrid{grid-template-columns:1fr} }
+
+    .store{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      min-height: 290px;
+    }
+    .thumb{
+      height:150px;
+      background:
+        radial-gradient(700px 220px at 10% 20%, rgba(106,228,255,.20), transparent 60%),
+        radial-gradient(700px 220px at 90% 40%, rgba(139,92,255,.22), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      border-bottom:1px solid var(--line);
+      position:relative;
+    }
+    .thumb .tag{
+      position:absolute; left:12px; top:12px;
+      padding:7px 10px; border-radius:999px;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px; color: #dbe3ef;
+      backdrop-filter: blur(8px);
+    }
+    .storeBody{padding:16px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .storeName{font-size:16px; font-weight:900; letter-spacing:-.4px; margin:0}
+    .meta{color:var(--muted); font-size:13px; line-height:1.55}
+    .meta b{color:#dfe6f1}
+    .storeActions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      font-weight:800; font-size:13px;
+    }
+    .pill:hover{border-color: rgba(255,255,255,.24)}
+    .pill.primary{border:none; background: linear-gradient(135deg, rgba(106,228,255,1), rgba(139,92,255,1)); color:#0b0c10}
+
+    .split{display:grid; grid-template-columns: 1.05fr .95fr; gap:12px}
+    @media (max-width: 920px){ .split{grid-template-columns:1fr} }
+
+    .panel{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3{margin:0 0 10px; font-size:16px; letter-spacing:-.4px}
+    .panel p{margin:0; color:var(--muted); font-size:14px; line-height:1.65}
+
+    .map{
+      width:100%; height:320px;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+
+    .form{display:grid; gap:10px; margin-top:12px}
+    .field{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:14px; padding:12px}
+    .field input,.field textarea{width:100%; background:transparent; border:none; outline:none; color:var(--text); font-size:14px}
+    .field textarea{min-height:96px; resize:vertical}
+
+    footer{
+      padding:28px 0 40px;
+      color: var(--muted);
+      border-top:1px solid var(--line);
+      margin-top: 18px;
+    }
+    .tiny{font-size:12px; line-height:1.6}
+    /* =========================
+   개인정보 수집·이용 동의
+========================= */
+.agree-box{
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.agree-label{
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.agree-label input{
+  margin-top: 3px;
+}
+
+.agree-label span{
+  line-height: 1.5;
+}
+
+.agree-link{
+  margin-left: 6px;
+  background: none;
+  border: none;
+  color: #6ae4ff;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.agree-link:hover{
+  text-decoration: underline;
+}
+
+.agree-detail{
+  display: none;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+
+    /* =========================
+       카톡 플로팅 버튼 (CSS만!)
+     ========================= */
+    .kakao-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 14px 18px;
+      border-radius: 999px;
+
+      background: #FEE500;
+      color: #1e1e1e;
+      font-weight: 900;
+      font-size: 14px;
+
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .kakao-float:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+    .kakao-icon{
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3c1e1e;
+      color: #FEE500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .kakao-text{ white-space: nowrap; }
+    @media (max-width: 480px){
+      .kakao-text{ display:none; }
+      .kakao-float{ padding: 14px; }
+    }
+    /* =========================
+   카톡 예약 전용 박스
+========================= */
+.kakao-quick{
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.kakao-template{
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.kakao-template-title{
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: -.2px;
+}
+
+.kakao-template-body{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.agree-note{
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.agree-note b{color:#dfe6f1}
+
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="inner">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span>ALGO모바일 매장</span>
+      </a>
+
+      <nav class="navlinks" aria-label="페이지 메뉴">
+        <a class="chip" href="#stores">매장 찾기</a>
+        <a class="chip" href="#benefits">매장 강점</a>
+        <a class="chip" href="#contact">상담/문의</a>
+        <a class="btn primary" href="#contact">무료 상담</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="heroCard">
+          <div class="badge"><span class="spark"></span> 매장 방문 · 유선 · 카톡 상담</div>
+          <h1>가까운 매장에서<br/>빠르고 투명하게.</h1>
+          <p class="sub">
+            서울(구로/동작), 인천(부평), 경기(안산/시흥) 전 지점 정상 운영 중.<br/>
+            방문 전 카톡으로 재고/가능 시간 확인하면 더 빠릅니다.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#stores">가까운 매장 찾기</a>
+            <a class="btn" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+            <a class="btn" href="#benefits">매장 강점 보기</a>
+          </div>
+        </div>
+
+        <aside class="miniCard">
+          <h3>운영 현황</h3>
+          <p>지점별 상담 가능 시간은 다를 수 있어요. 방문 전 연락 권장!</p>
+          <div class="kpiRow" role="list">
+            <div class="kpi" role="listitem">
+              <div class="n">6</div>
+              <div class="t">운영 중 지점</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="n">-</div>
+              <div class="t">오픈 예정</div>
+            </div>
+          </div>
+          <a class="btn primary" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡으로 빠른 상담</a>
+          <a class="btn" href="#stores">지점 정보 보기</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="benefits" class="section">
+      <div class="sectionHeader">
+        <div>
+          <h2>속임수 없는 상담</h2>
+          <div class="desc">짧고 강하게 “우리 매장 장점”을 보여주는 구간입니다.</div>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <article class="feature">
+          <div class="icon">1</div>
+          <h3>투명한 견적</h3>
+          <p>공시/선약/추가지원금 등 조건을 깔끔하게 정리해 안내합니다.</p>
+        </article>
+        <article class="feature">
+          <div class="icon">2</div>
+          <h3>불필요한 권유 없음</h3>
+          <p>카드 강요/쓸데없는 결합 권유 없이 필요한 것만 제안합니다.</p>
+        </article>
+        <article class="feature">
+          <div class="icon">3</div>
+          <h3>카톡으로 빠른 확인</h3>
+          <p>방문 전 재고/대기시간/개통 가능 여부를 먼저 확인하세요.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stores" class="section">
+      <div class="sectionHeader">
+        <div>
+          <h2>매장 안내</h2>
+          <div class="desc">검색/지역 필터 포함. 지점명/지역으로 빠르게 찾을 수 있어요.</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search" role="search">
+          <span aria-hidden="true">🔎</span>
+          <input id="q" type="search" placeholder="지점명/지역(예: 인천, 안산, 시흥)으로 검색" />
+        </div>
+
+        <select id="region" class="select" aria-label="지역 필터">
+          <option value="all">전체 지역</option>
+          <option value="seoul">서울</option>
+          <option value="incheon">인천</option>
+          <option value="gyeonggi">경기</option>
+        </select>
+      </div>
+
+      <div id="storeGrid" class="storeGrid">
+        <article class="store" data-region="seoul" data-keywords="서울 구로구 신도림 신도림점 구로">
+          <div class="thumb"><span class="tag">운영 중</span></div>
+          <div class="storeBody">
+            <h3 class="storeName">구로구 신도림점</h3>
+            <div class="meta">
+              <div><b>주소</b> 서울특별시 구로구 새말로 97</div>
+              <div><b>영업</b> 매일 11:00 ~ 20:00</div>
+              <div><b>안내</b> 방문 전 예약 / 무료주차</div>
+            </div>
+            <div class="storeActions">
+              <a class="pill primary" href="#contact" data-pick="구로구 신도림점">상담/예약</a>
+              <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="store" data-region="seoul" data-keywords="서울 동작구 보라매 보라매점 동작">
+          <div class="thumb"><span class="tag">운영 중</span></div>
+          <div class="storeBody">
+            <h3 class="storeName">동작구 보라매점</h3>
+            <div class="meta">
+              <div><b>주소</b> 서울 동작구 보라매로5길 35</div>
+              <div><b>영업</b> 월~토 10:30 ~ 20:30</div>
+              <div><b>안내</b> 방문 전 예약 / 무료주차</div>
+            </div>
+            <div class="storeActions">
+              <a class="pill primary" href="#contact" data-pick="동작구 보라매점">상담/예약</a>
+              <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="store" data-region="incheon" data-keywords="인천 부평구 부평 부평동 부평점">
+          <div class="thumb"><span class="tag">운영 중</span></div>
+          <div class="storeBody">
+            <h3 class="storeName">인천 부평점</h3>
+            <div class="meta">
+              <div><b>주소</b> 인천시 부평구 부평동 725-15</div>
+              <div><b>영업</b> 11:00 ~ 20:00 (문의)</div>
+              <div><b>안내</b> 방문 전 예약 / 상담 환영</div>
+            </div>
+            <div class="storeActions">
+              <a class="pill primary" href="#contact" data-pick="인천 부평점">상담/예약</a>
+              <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="store" data-region="gyeonggi" data-keywords="경기 안산 단원구 초지동 초지동점 안산점">
+            <div class="thumb"><span class="tag">운영 중</span></div>
+            <div class="storeBody">
+              <h3 class="storeName">안산 초지동점</h3>
+              <div class="meta">
+                <div><b>주소</b> 안산시 단원구 초지동 729-1</div>
+                <div><b>영업</b> 11:00 ~ 20:00 (문의)</div>
+                <div><b>안내</b> 방문 전 예약 필수</div>
+              </div>
+              <div class="storeActions">
+                <a class="pill primary" href="#contact" data-pick="안산 초지동점">상담/예약</a>
+                <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+              </div>
+            </div>
+          </article>
+  
+          <article class="store" data-region="gyeonggi" data-keywords="경기 시흥 대야동 시흥점 대야점">
+            <div class="thumb"><span class="tag">운영 중</span></div>
+            <div class="storeBody">
+              <h3 class="storeName">시흥 대야동점</h3>
+              <div class="meta">
+                <div><b>주소</b> 시흥시 대야동 543-1</div>
+                <div><b>영업</b> 11:00 ~ 20:00 (문의)</div>
+                <div><b>안내</b> 재고 확인 후 방문 권장</div>
+              </div>
+              <div class="storeActions">
+                <a class="pill primary" href="#contact" data-pick="시흥 대야동점">상담/예약</a>
+                <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store" data-region="gyeonggi" data-keywords="경기 시흥 정왕동 시화 정왕점">
+            <div class="thumb"><span class="tag">운영 중</span></div>
+            <div class="storeBody">
+              <h3 class="storeName">시흥 시화(정왕점)</h3>
+              <div class="meta">
+                <div><b>주소</b> 시흥시 정왕동 1737-1</div>
+                <div><b>영업</b> 11:00 ~ 20:00 (문의)</div>
+                <div><b>안내</b> 방문 전 예약 / 무료주차</div>
+              </div>
+              <div class="storeActions">
+                <a class="pill primary" href="#contact" data-pick="시흥 시화(정왕점)">상담/예약</a>
+                <a class="pill" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">카톡 상담</a>
+              </div>
+            </div>
+          </article>
+
+      </div>
+    </section>
+
+  <section id="contact" class="section">
+  <div class="sectionHeader">
+    <div>
+      <h2>상담/예약</h2>
+      <div class="desc">
+        예약/상담은 <b>카카오톡 채널</b>로만 받고 있습니다. (가장 빠름)
+      </div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="panel">
+      <h3>지도 영역(예시)</h3>
+      <p>대표 지점 주소로 네이버/카카오 지도 임베드를 넣어주세요.</p>
+      <div class="map" aria-label="지도 영역">
+        <iframe
+          title="지도 예시"
+          src="https://www.google.com/maps?q=Sindorim%20Station&output=embed"
+          width="100%" height="100%" style="border:0" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>카톡으로 예약하기</h3>
+      <p>
+        아래 버튼을 눌러 카톡으로 문의해 주세요.<br/>
+        빠른 상담을 위해 아래 양식대로 보내주시면 가장 빨라요.
+      </p>
+
+      <div class="kakao-quick">
+        <div class="kakao-template">
+          <div class="kakao-template-title">📌 이렇게 보내주세요</div>
+          <div class="kakao-template-body">
+            1) 방문 지점: (신도림/부평/안산/시흥 등)<br/>
+            2) 방문 희망일/시간:<br/>
+            3) 문의 내용: (번호이동/기변, 기종, 예산 등)<br/>
+            4) 연락처: (선택)
+          </div>
+        </div>
+
+        <a class="btn primary" href="http://pf.kakao.com/_bFhTM" target="_blank" rel="noopener">
+          카톡으로 상담/예약하기
+        </a>
+
+        <div class="agree-note">
+          카톡으로 상담을 신청하시면, 상담 진행을 위해 필요한 범위 내에서
+          <b>이름/연락처/상담내용</b> 등의 개인정보를 수집·이용하는 것에 동의한 것으로 봅니다.
+          (보유기간: 상담 종료 후 1년 보관 후 파기)
+        </div>
+
+        <div class="tiny" style="margin-top:10px;">
+          ※ 실제 운영 시 개인정보처리방침 페이지를 만들어 하단에 링크를 추가하는 것을 권장합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer>
+      <div class="wrap" style="padding:0;">
+        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div><b>ALGO모바일 매장</b> · </div>
+          <div class="tiny">© ALGO Mobile. All rights reserved.</div>
+        </div>
+        <div class="tiny" style="margin-top:10px;">
+            고객센터: 0507-1489-8211 · 카톡채널: 알고사</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+  function toggleAgree(){
+  const el = document.getElementById('agreeDetail');
+  if(!el) return;
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+
+    // 검색/필터
+    const q = document.getElementById('q');
+    const region = document.getElementById('region');
+    const grid = document.getElementById('storeGrid');
+
+    function normalize(s){ return (s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
+
+    function applyFilter(){
+      const query = normalize(q.value);
+      const r = region.value;
+
+      grid.querySelectorAll('.store').forEach(card => {
+        const kw = normalize(card.getAttribute('data-keywords'));
+        const name = normalize(card.querySelector('.storeName')?.textContent);
+        const hitQuery = !query || kw.includes(query) || name.includes(query);
+        const hitRegion = (r === 'all') || (card.getAttribute('data-region') === r);
+        card.style.display = (hitQuery && hitRegion) ? '' : 'none';
+      });
+    }
+    q.addEventListener('input', applyFilter);
+    region.addEventListener('change', applyFilter);
+
+    // 지점 선택 시 폼 자동 입력
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('[data-pick]');
+      if(!a) return;
+      const storeName = a.getAttribute('data-pick');
+      // 카톡으로 바로 연결되므로 여기선 추가 동작 없음 (혹은 알림)
+    });
+
+    // 예시 제출 처리
+    function handleSubmit(ev){
+      ev.preventDefault();
+      alert('상담 신청이 접수되었습니다(예시).\n실제 운영 시 서버 전송/카톡 알림으로 연결하세요!');
+      ev.target.reset();
+      return false;
+    }
+    window.handleSubmit = handleSubmit;
+  </script>
+
+  <a href="http://pf.kakao.com/_bFhTM"
+     class="kakao-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="카카오톡 상담">
+    <span class="kakao-icon">💬</span>
+    <span class="kakao-text">카톡 상담</span>
+  </a>
+
+</body>
+</html>
+
