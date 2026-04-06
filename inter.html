@@ -8,7 +8,8 @@
         --hsw-blue-light: #f0f6ff;
         --hsw-border: #e1e1e1;
         --hsw-text: #222;
-        --hsw-red: #ff3d00;
+        --hsw-kakao-yellow: #FEE500;
+        --hsw-kakao-brown: #3C1E1E;
     }
 
     /* 전체 배경 및 폰트 설정 */
@@ -99,10 +100,24 @@
     .ajd-bar-info { display: flex; flex-direction: column; }
     .ajd-bar-label { font-size: 0.8rem; color: #bbb; margin-bottom: 4px; }
     .ajd-bar-price { font-size: 1.25rem; font-weight: 700; }
-    .ajd-bar-cash { font-size: 1.25rem; font-weight: 700; color: var(--hsw-red); }
+    .ajd-bar-cash { font-size: 1.25rem; font-weight: 700; color: #ffeb3b; } /* 현금 강조 색상 */
     .ajd-bar-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.1); margin: 0 15px; }
 
-    .ajd-btn-submit { background: var(--hsw-red); color: white; border: none; padding: 14px 30px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+    /* 카카오톡 스타일 버튼 */
+    .ajd-btn-submit { 
+        background: var(--hsw-kakao-yellow); 
+        color: var(--hsw-kakao-brown); 
+        border: none; 
+        padding: 14px 25px; 
+        border-radius: 10px; 
+        font-weight: 700; 
+        font-size: 1rem; 
+        cursor: pointer; 
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s;
+    }
+    .ajd-btn-submit:hover { background: #fada00; }
 
     /* 모바일 대응 */
     @media (max-width: 768px) {
@@ -112,6 +127,8 @@
         .ajd-card-title { margin: 0 15px; flex: 1; order: 1; }
         .ajd-card-price { order: 2; }
         .ajd-top-tabs { justify-content: flex-start; }
+        .ajd-bar-inner { padding: 0 15px; }
+        .ajd-btn-submit { padding: 12px 15px; font-size: 0.9rem; }
     }
 </style>
 
@@ -130,22 +147,22 @@
         </div>
 
         <div class="ajd-header">
-            <h2>원하시는 상품을 선택해주세요</h2>
-            <p>선택하신 상품에 따라 월 요금과 현금 지원금이 자동 계산됩니다.</p>
+            <h2 style="font-weight: 900;">🌐 인터넷+TV 요금 계산기</h2>
+            <p>상품을 선택하면 <strong>월 요금</strong>과 <strong>사은품</strong>이 자동 계산됩니다.</p>
         </div>
 
         <div class="ajd-calc-container">
             <!-- 인터넷 영역 -->
             <section class="ajd-group">
-                <h3 class="ajd-label">인터넷 상품</h3>
+                <h3 class="ajd-label">1. 인터넷 상품 선택</h3>
                 <div class="ajd-grid" id="ajd-internet-list">
-                    <p style="text-align:center; grid-column: 1/-1; padding: 40px 0;">데이터를 불러오는 중입니다...</p>
+                    <p style="text-align:center; grid-column: 1/-1; padding: 40px 0;">데이터를 불러오는 중...</p>
                 </div>
             </section>
 
             <!-- TV 영역 -->
             <section class="ajd-group">
-                <h3 class="ajd-label">TV 상품</h3>
+                <h3 class="ajd-label">2. TV 상품 선택</h3>
                 <div class="ajd-grid" id="ajd-tv-list"></div>
             </section>
 
@@ -153,15 +170,16 @@
             <div class="ajd-sticky-bar">
                 <div class="ajd-bar-inner">
                     <div class="ajd-bar-info">
-                        <span class="ajd-bar-label">월 예상 납부금</span>
+                        <span class="ajd-bar-label">월 예상 요금</span>
                         <span class="ajd-bar-price" id="total-price">0원</span>
                     </div>
                     <div class="ajd-bar-divider"></div>
                     <div class="ajd-bar-info">
-                        <span class="ajd-bar-label">최대 현금지원</span>
+                        <span class="ajd-bar-label">현금 사은품</span>
                         <span class="ajd-bar-cash" id="total-cash">0만원</span>
                     </div>
-                    <button class="ajd-btn-submit" onclick="alert('상담 신청이 접수되었습니다.')">상담신청</button>
+                    <!-- 카톡 연결 버튼 -->
+                    <a href="http://pf.kakao.com/_sdYlu/chat" target="_blank" class="ajd-btn-submit">카톡 상담신청</a>
                 </div>
             </div>
         </div>
@@ -169,7 +187,7 @@
 </div>
 
 <script>
-    // [중요] 여기에 배포한 웹 앱 URL을 붙여넣으세요
+    // [중요] 배포한 웹 앱 URL
     const SHEET_URL = "https://script.google.com/macros/s/AKfycbwCopYUOB4bJ8eIrbUhl6xoAZvikF-hmajmzVGzW9Vs1K9N-rcuzVO3BIN95s50Od3P/exec"; 
 
     let allProducts = [];
@@ -179,7 +197,6 @@
             const response = await fetch(SHEET_URL);
             allProducts = await response.json();
             
-            // 탭 클릭 이벤트 설정
             document.querySelectorAll('.ajd-top-tab').forEach(tab => {
                 tab.addEventListener('click', function() {
                     document.querySelectorAll('.ajd-top-tab').forEach(t => t.classList.remove('active'));
@@ -188,23 +205,20 @@
                 });
             });
 
-            // 초기 로딩 (KT 우선)
             render('kt');
         } catch (error) {
             console.error("실패:", error);
-            document.getElementById('ajd-internet-list').innerHTML = "데이터 로딩에 실패했습니다. 시트 배포 URL을 확인해주세요.";
+            document.getElementById('ajd-internet-list').innerHTML = "데이터 로딩 실패. 관리자에게 문의하세요.";
         }
     }
 
     function render(carrier) {
         const internetList = document.getElementById('ajd-internet-list');
         const tvList = document.getElementById('ajd-tv-list');
-        
         internetList.innerHTML = '';
         tvList.innerHTML = '';
 
-        // 해당 통신사만 필터링
-        const filtered = allProducts.filter(p => p.Carrier.trim().toLowerCase() === carrier.toLowerCase());
+        const filtered = allProducts.filter(p => p.Carrier && p.Carrier.trim().toLowerCase() === carrier.toLowerCase());
 
         filtered.forEach(p => {
             const isActive = p.IsActive === 'Y' ? 'active' : '';
@@ -218,9 +232,9 @@
                     <div class="ajd-card-price">${Number(p.Price).toLocaleString()}원</div>
                 </div>`;
 
-            if (p.Category.trim().toLowerCase() === 'internet') {
+            if (p.Category && p.Category.trim().toLowerCase() === 'internet') {
                 internetList.innerHTML += card;
-            } else {
+            } else if (p.Category && p.Category.trim().toLowerCase() === 'tv') {
                 tvList.innerHTML += card;
             }
         });
@@ -229,7 +243,6 @@
     }
 
     function selectCard(el) {
-        // 같은 그룹 내 다른 카드 선택 해제
         const siblings = el.parentElement.querySelectorAll('.ajd-card');
         siblings.forEach(s => s.classList.remove('active'));
         el.classList.add('active');
@@ -249,6 +262,5 @@
         document.getElementById('total-cash').innerText = totalC + "만원";
     }
 
-    // 실행 시작
     fetchData();
 </script>
