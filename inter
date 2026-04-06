@@ -1,0 +1,594 @@
+<!--@layout(/layout/basic/layout.html)-->
+
+<div module="Layout_Dummy"></div>			</div>
+			</div>
+		</div>
+	</div><!-- //content-list -->
+</section>
+<div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-1mka1k9-1"><meta name="viewport" content="width=device-width, initial-scale=1.0"></div>
+<div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-0lzi22d-1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"></div>
+<div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-1psanb2-1"><style>
+    /* ==========================================================================
+       Project: Hansoowee Clone (6 Carriers / Scrollable Tabs)
+       Description: Final Polish (with Kakao Button)
+       ========================================================================== */
+
+    /* Variables */
+    :root {
+        --hsw-blue: #1848cc;
+        --hsw-blue-light: #f0f6ff;
+        --hsw-border: #e1e1e1;
+        --hsw-text: #222;
+        --hsw-gray: #666;
+        --hsw-red: #ff3d00;
+    }
+
+    /* Base Reset & Background */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .ajd-body-bg {
+        background-color: #f4f6f9;
+        min-height: 100vh;
+        padding: 0 0 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ajd-wrapper {
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        color: var(--hsw-text);
+        width: 100%;
+        max-width: 100%;
+        background: #f4f6f9;
+    }
+
+    .ajd-wrapper * {
+        box-sizing: border-box;
+    }
+
+    .ajd-wrapper a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* 1. Top Tabs Wrapper */
+    .ajd-top-container {
+        background: white;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Scrollable Tabs */
+    .ajd-top-tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .ajd-top-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ajd-top-tab {
+        flex: 0 0 auto;
+        padding: 20px 24px;
+        color: #999;
+        font-weight: 700;
+        font-size: 1rem;
+        white-space: nowrap;
+        border-bottom: 3px solid transparent;
+        transition: color 0.2s;
+    }
+
+    .ajd-top-tab.active {
+        color: var(--hsw-blue);
+        border-bottom: 3px solid var(--hsw-blue);
+    }
+
+    /* 2. Header */
+    .ajd-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .ajd-header h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: #111;
+    }
+
+    .ajd-header p {
+        color: #888;
+        font-size: 0.95rem;
+    }
+
+    /* 3. Calculator Container */
+    .ajd-calc-container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .ajd-group {
+        margin-bottom: 40px;
+    }
+
+    .ajd-label {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+        color: #000;
+        padding-left: 4px;
+    }
+
+    /* Grid Layout */
+    .ajd-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    #ajd-tv-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Card Style */
+    .ajd-card {
+        border: 1px solid var(--hsw-border);
+        border-radius: 14px;
+        background: #fff;
+        padding: 20px 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 140px;
+        position: relative;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .ajd-card:hover {
+        border-color: #bbb;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .ajd-card.active {
+        border: 2px solid var(--hsw-blue);
+        background: var(--hsw-blue-light);
+        color: var(--hsw-blue);
+        padding: 19px 9px;
+        z-index: 2;
+        box-shadow: 0 8px 20px rgba(24, 72, 204, 0.12);
+    }
+
+    .ajd-card-toptag {
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 8px;
+        background: #f5f5f5;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+
+    .ajd-card.active .ajd-card-toptag {
+        background: #fff;
+        color: var(--hsw-blue);
+    }
+
+    .ajd-card-toptag.best {
+        color: var(--hsw-red);
+        background: #fff0eb;
+    }
+
+    .ajd-card-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 6px;
+        word-break: keep-all;
+        line-height: 1.25;
+    }
+
+    .ajd-card-price {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .ajd-card.active .ajd-card-price {
+        color: var(--hsw-blue);
+    }
+
+
+    /* Sticky Bar */
+    .ajd-sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #222;
+        color: white;
+        padding: 20px 0;
+        z-index: 1000;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 24px 24px 0 0;
+    }
+
+    .ajd-bar-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ajd-bar-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ajd-bar-label {
+        font-size: 0.8rem;
+        color: #bbb;
+        margin-bottom: 4px;
+    }
+
+    .ajd-bar-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+
+    .ajd-bar-cash {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--hsw-red);
+        line-height: 1;
+    }
+
+    .ajd-bar-divider {
+        width: 1px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.15);
+        margin: 0 20px;
+    }
+
+    /* === [New] Button Group for Sticky Bar === */
+    .ajd-bar-btns {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    /* [New] Kakao Button Style for Sticky Bar */
+    .ajd-btn-kakao-bar {
+        background: #FEE500;
+        color: #3C1E1E;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .ajd-btn-submit {
+        background: var(--hsw-red);
+        color: white;
+        border: none;
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    /* Modal */
+    .ajd-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .ajd-modal-box {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 20px;
+        position: relative;
+        text-align: center;
+    }
+
+    .ajd-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #999;
+    }
+
+    .ajd-inp {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        background: #f9f9f9;
+    }
+
+    .ajd-btn-full {
+        width: 100%;
+        padding: 16px;
+        background: var(--hsw-blue);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .ajd-modal-btns {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .ajd-modal-btns button {
+        flex: 1;
+        padding: 14px 0;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .ajd-modal-btns button:hover {
+        opacity: 0.9;
+    }
+
+    .ajd-btn-submit-modal {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .ajd-btn-kakao {
+        background-color: #FEE500;
+        color: #3C1E1E;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .ajd-top-container {
+            margin-bottom: 20px;
+        }
+
+        .ajd-top-tabs {
+            justify-content: flex-start;
+        }
+
+        .ajd-top-tab {
+            padding: 15px 18px;
+            font-size: 0.95rem;
+        }
+
+        .ajd-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .ajd-grid,
+        #ajd-tv-list {
+            grid-template-columns: 1fr;
+        }
+
+        .ajd-card {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 16px 20px;
+            min-height: auto;
+            text-align: left;
+            margin-bottom: 0px;
+        }
+
+        .ajd-card-title {
+            flex: 1;
+            margin: 0 0 0 12px;
+            order: 1;
+            font-size: 1.05rem;
+        }
+
+        .ajd-card-toptag {
+            margin: 0;
+            order: 0;
+            min-width: 65px;
+            text-align: center;
+        }
+
+        .ajd-card-price {
+            margin-left: auto;
+            order: 2;
+            font-size: 1rem;
+        }
+
+        .ajd-sticky-bar {
+            padding: 16px 0;
+        }
+
+        .ajd-bar-inner {
+            padding: 0 16px;
+        }
+
+        .ajd-bar-divider {
+            margin: 0 10px;
+            height: 28px;
+        }
+
+        /* [New] Mobile Button Sizing */
+        .ajd-btn-submit,
+        .ajd-btn-kakao-bar {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+
+        .ajd-bar-btns {
+            gap: 6px;
+        }
+    }
+</style></div>
+<div class="ajd-body-bg" data-ez="module-0k12zqo-1" data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain">
+    <div class="ajd-wrapper">
+
+        <div class="ajd-top-container">
+            <div class="ajd-top-tabs">
+                <a href="#" class="ajd-top-tab active" data-carrier="kt">KT 올레</a>
+                <a href="#" class="ajd-top-tab" data-carrier="lg">LG 유플러스</a>
+                <a href="#" class="ajd-top-tab" data-carrier="sk">SKT</a>
+                <a href="#" class="ajd-top-tab" data-carrier="skylife">스카이라이프</a>
+                <a href="#" class="ajd-top-tab" data-carrier="hello">LG헬로비전</a>
+                <a href="#" class="ajd-top-tab" data-carrier="skb">SK브로드밴드</a>
+            </div>
+        </div>
+
+        <div class="ajd-header">
+            <h2>원하시는 상품을 선택해주세요</h2>
+            <p>하단 필독사항을 참고해주세요.</p>
+        </div>
+
+        <div class="ajd-calc-container">
+
+            <section class="ajd-group">
+                <h3 class="ajd-label">인터넷</h3>
+                <div class="ajd-grid" id="ajd-internet-list">
+                    <div class="ajd-card active" data-price="23100" data-name="100Mbps 슬림">
+                        <div class="ajd-card-toptag">100Mbps</div>
+                        <div class="ajd-card-title">100M 슬림</div>
+                        <div class="ajd-card-price">23,100원</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ajd-group">
+                <h3 class="ajd-label">TV</h3>
+                <div class="ajd-grid" id="ajd-tv-list">
+                    <div class="ajd-card active" data-price="0" data-name="TV 선택안함">
+                        <div class="ajd-card-title" style="margin-top:10px;">선택 안함</div>
+                        <div class="ajd-card-price">0원</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="ajd-sticky-bar">
+                <div class="ajd-bar-inner">
+                    <div class="ajd-bar-info">
+                        <span class="ajd-bar-label">월 예상 납부금</span>
+                        <span class="ajd-bar-price" id="total-price">23,100원</span>
+                    </div>
+                    <div class="ajd-bar-divider"></div>
+                    <div class="ajd-bar-info">
+                        <span class="ajd-bar-label">최대 현금지원</span>
+                        <span class="ajd-bar-cash" id="total-cash">10만원</span>
+                    </div>
+                    
+                    <div class="ajd-bar-btns">
+                        <button class="ajd-btn-kakao-bar" onclick="openKakao()">카톡상담</button>
+                        <button class="ajd-btn-submit" onclick="openModal()">상담신청</button>
+                    </div>
+                    </div>
+            </div>
+
+        </div>
+
+        <div id="ajd-modal-overlay" class="ajd-modal-overlay" style="display:none;">
+            <div class="ajd-modal-box">
+                <button class="ajd-modal-close" onclick="closeModal()">×</button>
+                <h3>간편 상담 신청</h3>
+                <p id="modal-selected-text" style="color:#666; font-size:0.9rem; margin-bottom:15px;"></p>
+
+                <input type="text" id="cust-name" placeholder="이름" class="ajd-inp">
+                <input type="tel" id="cust-phone" placeholder="010-0000-0000" class="ajd-inp">
+
+                <div class="ajd-modal-btns">
+                    <button class="ajd-btn-submit-modal" onclick="submitForm()">신청하기</button>
+                    <button class="ajd-btn-kakao" onclick="openKakao()">카톡상담</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-0owuiqk-1"><script src="https://code.jquery.com/jquery-3.7.0.min.js"></script><script src="/web/upload/js/custom.js"></script></div>
+<section class="section main_product_slide" data-ez-module="product-list-slide/2" data-ez-layout="grid5_slide" data-ez="contents-140jt8r-1" style="margin-bottom: 120px;">
+	<ez-prop data-version="1.0.0" type="layout">
+		<ez-var data-prop="layout" data-namespace="ez.module.product-list-slide.layout" data-type="array">
+			<ez-item data-id="grid3_slide" data-name="일반3단형(PC 3열/MOBILE 2열)"></ez-item>
+			<ez-item data-id="grid4_slide" data-name="일반4단형(PC 4열/MOBILE 2열)"></ez-item>
+			<ez-item data-id="grid5_slide" data-name="일반5단형(PC 5열/MOBILE 3열)"></ez-item>
+			<ez-item data-id="grid3_slide list_gallery" data-name="이미지강조3단형(PC 3열/MOBILE 2열)"></ez-item>
+			<ez-item data-id="grid4_slide list_gallery" data-name="이미지강조4단형(PC 4열/MOBILE 2열)"></ez-item>
+			<ez-item data-id="grid5_slide list_gallery" data-name="이미지강조5단형(PC 5열/MOBILE 3열)"></ez-item>
+		</ez-var>
+	</ez-prop>
+
+	<div class="main_title ez-align-left" data-ez-role="ez-align" data-ez-align="left"><!-- 온라인스페셜특가 타이틀 수정하는곳 -->
+		<div module="product_listmain_1" class="ec-base-product swiper-container special_slide">
+			<div class="swiper-scrollbar">
+			</div>
+		</div>
+	</div>
+	<div class="swiper-button-next swiper-button-next-special_slide"></div>
+	<div class="swiper-button-prev swiper-button-prev-special_slide"></div>
+</section>
+<section class="section main_image_text_gallery" data-ez-module="image-gallery/2" data-ez-role="style.background" data-ez-item-length="3" data-ez="contents-0s8lg4q-1">
+	<ez-prop data-version="1.0.0" type="layout">
+		<ez-var data-prop="image" data-namespace="ez.module.image-gallery.image">
+			<ez-item data-id="size" data-pc="546 680" data-mobile="546 680"></ez-item>
+		</ez-var>
+		<ez-var data-prop="display" data-namespace="ez.module.image-gallery.display">
+			<ez-item data-id="item" data-max="10"></ez-item>
+			<ez-item data-id="column" data-default="3" data-min="1" data-max="5"></ez-item>
+		</ez-var>
+		<ez-var data-prop="layout" data-namespace="ez.module.image-gallery.layout">
+			<ez-item data-id="mobile" data-default="slide">
+				<ez-item data-id="options" data-type="array">
+					<ez-item data-id="slide" data-name="슬라이드"></ez-item>
+					<ez-item data-id="more" data-name="더보기"></ez-item>
+					<ez-item data-id="none" data-name="사용안함"></ez-item>
+				</ez-item>
+			</ez-item>
+	
